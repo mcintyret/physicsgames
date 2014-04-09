@@ -8,16 +8,17 @@ public class Paddle implements Rectangle {
 
     private final int height;
 
-    private double verticalSpeed = 0;
+    private double verticalSpeed = 130D;
 
     private final int xPos;
 
     private int yPos;
 
-    public Paddle(int width, int height, int xPos) {
+    public Paddle(int width, int height, int xPos, int initialY) {
         this.width = width;
         this.height = height;
         this.xPos = xPos;
+        this.yPos = initialY;
     }
 
     public int getWidth() {
@@ -32,6 +33,10 @@ public class Paddle implements Rectangle {
     @Override
     public int getYpos() {
         return yPos;
+    }
+
+    public void setyPos(int yPos) {
+        this.yPos = yPos;
     }
 
     public int getHeight() {

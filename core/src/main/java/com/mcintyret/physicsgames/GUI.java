@@ -28,7 +28,7 @@ public class GUI {
         this.gameDetails = gameDetails;
 
         frame = new JFrame(gameDetails.getGameName());
-        frame.setSize(new Dimension(600, 600));
+        frame.setSize(new Dimension(600, 640));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +68,7 @@ public class GUI {
                 @Override
                 public void run() {
                     finGp.millisPassed(diff).doResponse(GUI.this);
+                    finGp.repaint();
                 }
             });
         }

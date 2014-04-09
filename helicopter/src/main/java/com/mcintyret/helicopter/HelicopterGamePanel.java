@@ -11,17 +11,17 @@ import java.awt.event.MouseEvent;
 
 class HelicopterGamePanel extends GamePanel {
 
+    private static final String SCORE_TEXT = "Score: ";
+
     private static final Color HELICOPTER_COLOR = Color.RED;
     private static final Color BARRIER_COLOR = Color.GREEN;
     private static final Color BACKGROUND_COLOR = Color.WHITE;
 
-    final HelicopterController controller = new HelicopterController(600, 600, 20, 10);
+    private final HelicopterController controller = new HelicopterController(600, 600, 20, 10);
 
-    volatile boolean thrusting = false;
+    private volatile boolean thrusting = false;
 
-    volatile boolean live = true;
-
-    private static final String SCORE_TEXT = "Score: ";
+    private volatile boolean live = true;
 
     private long score = 0;
     private final JLabel scoreLabel = new JLabel(SCORE_TEXT);
@@ -32,6 +32,7 @@ class HelicopterGamePanel extends GamePanel {
         add(new JPanel() {
             {
                 setBackground(BACKGROUND_COLOR);
+                setSize(new Dimension(600, 600));
             }
 
             @Override
@@ -92,7 +93,6 @@ class HelicopterGamePanel extends GamePanel {
                 live = false;
                 resp = diedResonse;
             }
-            repaint();
         }
         return resp;
     }
